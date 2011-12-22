@@ -2,7 +2,7 @@
 W, H, d, s, x, y, e, f, t = 80, 25, [], [], -1, 0, 1, 0, false
 H.times { d << [' '] * W }
 open($*[0]) do |f|
-  while c = f.read(1)
+  while c = f.getc
     if c == "\n"
       x, y = -1, y + 1
     else
@@ -36,7 +36,7 @@ while c = d[y][x]
   when '.' then print s.pop, ' '
   when ',' then putc(s.pop)
   when '&' then s.push(gets.to_i)
-  when '~' then s.push(STDIN.read(1).ord)
+  when '~' then s.push(STDIN.getc.ord)
   when '#' then x, y = x + e, y + f
   when 'p' then d[s.pop][s.pop] = s.pop.chr
   when 'g' then s.push(d[s.pop][s.pop].ord)
