@@ -37,11 +37,11 @@ while c = d[y][x]
   when '$' then s.pop
   when '.' then print s.pop, ' '
   when ',' then putc(s.pop)
+  when '&' then s.push(gets.to_i)
+  when '~' then s.push(STDIN.read(1).ord)
   when '#' then x, y = x + e, y + f
   when 'p' then d[s.pop][s.pop] = s.pop.chr
   when 'g' then s.push(d[s.pop][s.pop].ord)
-  when '&' then s.push(gets.to_i)
-  when '~' then s.push(STDIN.read(1).ord)
   when '@' then break
   end
   x, y = (x + e) % W, (y + f) % H
