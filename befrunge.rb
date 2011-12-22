@@ -36,7 +36,7 @@ while c = d[y][x]
   when '\\' then s.push(s.pop, s.pop)
   when '$' then s.pop
   when '.' then print s.pop, ' '
-  when ',' then print s.pop.chr
+  when ',' then putc(s.pop)
   when '#' then x, y = x + e, y + f
   when 'p' then d[s.pop][s.pop] = s.pop.chr
   when 'g' then s.push(d[s.pop][s.pop].ord)
