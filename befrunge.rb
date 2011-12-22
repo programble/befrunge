@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 W, H, d, s, x, y, e, f, t = 80, 25, [], [], -1, 0, 1, 0, false
 H.times { d << [' '] * W }
 open($*[0]) do |f|
@@ -11,7 +10,6 @@ open($*[0]) do |f|
     end
   end
 end
-
 x = y = 0
 while c = d[y][x]
   c = s.push(c.ord) if t && c != '"'
