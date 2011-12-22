@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-W, H, d, s, x, y, e, f, t = 80, 25, [], [], -1, 0, 1, 0, false
+require 'socket'
+W, H, d, s, x, y, e, f, t, i, o = 80, 25, [], [], -1, 0, 1, 0, false, *$*[1] ? [TCPSocket.new($*[1], $*[2].to_i)] * 2 : [STDIN, STDOUT]
 H.times { d << [' '] * W }
 open($*[0]) do |f|
   while c = f.getc
@@ -33,10 +34,10 @@ while c = d[y][x]
   when ':' then s.push(*s.pop(1) * 2)
   when '\\' then s.push(s.pop, s.pop)
   when '$' then s.pop
-  when '.' then print s.pop, ' '
-  when ',' then putc(s.pop)
-  when '&' then s.push(gets.to_i)
-  when '~' then s.push(STDIN.getbyte)
+  when '.' then o.print s.pop, ' '
+  when ',' then o.putc(s.pop)
+  when '&' then s.push(i.gets.to_i)
+  when '~' then s.push(i.getbyte)
   when '#' then x, y = x + e, y + f
   when 'p' then d[s.pop][s.pop] = s.pop.chr
   when 'g' then s.push(d[s.pop][s.pop].ord)
