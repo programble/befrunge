@@ -36,7 +36,7 @@ while c = d[y][x]
   when '.' then print s.pop, ' '
   when ',' then putc(s.pop)
   when '&' then s.push(gets.to_i)
-  when '~' then s.push(STDIN.getc.ord)
+  when '~' then s.push(STDIN.getbyte)
   when '#' then x, y = x + e, y + f
   when 'p' then d[s.pop][s.pop] = s.pop.chr
   when 'g' then s.push(d[s.pop][s.pop].ord)
