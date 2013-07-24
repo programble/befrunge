@@ -21,7 +21,7 @@ while c = d[y][x]
   when '*' then s.push(s.pop * s.pop)
   when '/' then s.push(s.pop(2).reduce(:/))
   when '%' then s.push(s.pop(2).reduce(:%))
-  when '!' then s.push(s.pop ? 1 : 0)
+  when '!' then s.push(s.pop == 0 ? 1 : 0)
   when '`' then s.push(s.pop(2).reduce(:>) ? 1 : 0)
   when '>' then e, f = 1, 0
   when '<' then e, f = -1, 0
